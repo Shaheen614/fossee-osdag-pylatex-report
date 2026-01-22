@@ -39,13 +39,4 @@ beam-report-generator/
 ├── requirements.txt
 └── LICENSE
 License
-This work is licensed under Creative Commons Zero v1.0 Universal (CC0).
-
-Code
-
----
-
-This version is **short, professional, and project‑focused** — perfect for GitHub.  
-
-Would you like me to also generate a **requirements.txt file** with pinned versions (so 
-
+This work is licensed under Creative Commons Zero v1.0 Universal (CC0)
