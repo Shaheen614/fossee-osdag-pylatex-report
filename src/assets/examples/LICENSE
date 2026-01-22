@@ -1,0 +1,46 @@
+
+---
+
+## 📂 `.gitignore`
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.log
+*.sqlite3
+*.egg-info/
+.venv/
+env/
+venv/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db

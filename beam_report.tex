@@ -1,0 +1,59 @@
+\documentclass{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage[english]{babel}%
+\usepackage{amsmath}%
+\usepackage{graphicx}%
+%
+%
+%
+\begin{document}%
+\normalsize%
+\title{Beam Analysis Report}%
+\author{PyLaTeX Report Generator}%
+\date{\today}%
+\maketitle%
+\tableofcontents%
+\newpage%
+\section{Introduction}%
+\label{sec:Introduction}%
+This report presents a comprehensive analysis of beam loading and structural behavior.%
+\newline%
+\newline%
+%
+Figure of the beam:%
+\newline%
+%
+\includegraphics[width=0.8\textbackslash{}textwidth]{src/assets/beam.png}
+
+%
+\section{Load Data}%
+\label{sec:LoadData}%
+Beam Length: 6.0 units\newline%
+\newline%
+%
+\begin{tabular}{|c|c|c|}%
+\hline%
+\textbf{Position (x)}&\textbf{Type}&\textbf{Value}\\%
+\hline%
+0&udl&200\\%
+\hline%
+\end{tabular}
+
+%
+\section{Analysis Results}%
+\label{sec:AnalysisResults}%
+Support Reaction at A: 0.00 units\newline%
+\newline%
+%
+Support Reaction at B: 0.00 units\newline%
+\newline%
+%
+Total Load: 0.00 units\newline%
+\newline%
+
+%
+\end{document}
