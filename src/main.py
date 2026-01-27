@@ -14,8 +14,13 @@ except FileNotFoundError:
         'Value': [0, 500, 300, 0]
     })
 
-# === 2. Create LaTeX document ===
+# Creates LaTeX document 
 doc = Document("beam_report")
+
+# Add required packages for pgfplots and tikz to preamble
+doc.preamble.append(NoEscape(r'\usepackage{pgfplots}'))
+doc.preamble.append(NoEscape(r'\usepackage{tikz}'))
+doc.preamble.append(NoEscape(r'\pgfplotsset{compat=1.16}'))
 
 # Title page
 doc.preamble.append(Command('title', 'Beam Analysis Report'))
@@ -29,12 +34,15 @@ doc.append(NoEscape(r'\newpage'))
 with doc.create(Section('Introduction')):
     doc.append("This report presents a comprehensive analysis of beam loading and structural behavior.")
     with doc.create(Figure(position='h!')) as beam_fig:
-        beam_fig.add_image("src/assets/examples/beam.png", width=NoEscape(r'0.8\textwidth'))
+        beam_fig.add_image("assets/beam.png", width=NoEscape(r'0.8\textwidth'))
         beam_fig.add_caption("Simply supported beam under loading")
 
 # === 4. Input data table from Excel ===
+doc.append(NoEscape(r'\newpage'))
+
 with doc.create(Section('Load Data')):
     doc.append("Beam structural analysis data read from Excel file:")
+    doc.append(NoEscape(r'\begin{center}'))
     with doc.create(Tabular('|c|c|c|')) as table:
         table.add_hline()
         table.add_row((bold("Position (x)"), bold("Shear Force"), bold("Bending Moment")))
@@ -42,52 +50,80 @@ with doc.create(Section('Load Data')):
         for _, row in df.iterrows():
             table.add_row((row['x'], row['Shear force'], row['Bending Moment']))
             table.add_hline()
+    doc.append(NoEscape(r'\end{center}'))
 
 # === 5. Analysis: TikZ/pgfplots diagrams ===
 with doc.create(Section('Analysis')):
-    doc.append("Shear Force Diagram (SFD) and Bending Moment Diagram (BMD) are plotted below using TikZ/pgfplots.")
+    doc.append("Shear Force Diagram (SFD) and Bending Moment Diagram (BMD) analysis:")
+    
+    # Use data from Excel file
+    x_data = df['x'].tolist()
+    shear_data = df['Shear force'].tolist()
+    moment_data = df['Bending Moment'].tolist()
 
-    # Example shear force array (replace with computed values)
-    x = [0, 2, 4, 6]
-    shear = [0, -200, -200, 0]
-    moment = [0, -400, -200, 0]
+    # Create Shear Force Diagram with pgfplots
+    sfd_plot = NoEscape(r"""
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    title={Shear Force Diagram (SFD)},
+    xlabel=Position x (m),
+    ylabel=Shear Force (N),
+    grid=both,
+    width=10cm,
+    height=6cm,
+    legend pos=north east
+  ]
+  \addplot[color=blue, mark=*, line width=2pt] coordinates {
+    """ + " ".join(f"({x:.1f},{s:.1f})" for x, s in zip(x_data, shear_data)) + r"""
+  };
+  \addlegendentry{Shear Force}
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+    """)
+    doc.append(sfd_plot)
 
-    # TikZ code for SFD
-    tikz_sfd = r"""
-    \begin{tikzpicture}
-    \begin{axis}[xlabel={x}, ylabel={Shear Force}, grid=major]
-    \addplot coordinates {
-    """ + " ".join(f"({xi},{yi})" for xi, yi in zip(x, shear)) + r"""
-    };
-    \end{axis}
-    \end{tikzpicture}
-    """
-
-    # TikZ code for BMD
-    tikz_bmd = r"""
-    \begin{tikzpicture}
-    \begin{axis}[xlabel={x}, ylabel={Bending Moment}, grid=major]
-    \addplot coordinates {
-    """ + " ".join(f"({xi},{yi})" for xi, yi in zip(x, moment)) + r"""
-    };
-    \end{axis}
-    \end{tikzpicture}
-    """
-
-    doc.append(NoEscape(tikz_sfd))
-    doc.append(NoEscape(tikz_bmd))
+    doc.append("")  # Add spacing
+    
+    # Create Bending Moment Diagram with pgfplots
+    bmd_plot = NoEscape(r"""
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    title={Bending Moment Diagram (BMD)},
+    xlabel=Position x (m),
+    ylabel=Bending Moment (N·m),
+    grid=both,
+    width=10cm,
+    height=6cm,
+    legend pos=north east
+  ]
+  \addplot[color=red, mark=square*, line width=2pt] coordinates {
+    """ + " ".join(f"({x:.1f},{m:.2f})" for x, m in zip(x_data, moment_data)) + r"""
+  };
+  \addlegendentry{Bending Moment}
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+    """)
+    doc.append(bmd_plot)
 
 # === 6. Generate LaTeX and optionally PDF ===
 # Generate LaTeX file
 doc.generate_tex('beam_report')
 print("✓ LaTeX file generated: beam_report.tex")
 
-# Try to generate PDF using pdflatex (doesn't require Perl)
+# Try to generate PDF using pdflatex (run twice for TOC)
 try:
     import subprocess
-    result = subprocess.run(['pdflatex', '-interaction=nonstopmode', 'beam_report.tex'], 
-                          capture_output=True, timeout=30)
-    # pdflatex returns non-zero even on success with warnings, so just check if PDF exists
+    # First run to generate aux file
+    result1 = subprocess.run(['pdflatex', '-interaction=nonstopmode', 'beam_report.tex'], 
+                           capture_output=True, timeout=30)
+    # Second run to populate TOC
+    result2 = subprocess.run(['pdflatex', '-interaction=nonstopmode', 'beam_report.tex'], 
+                           capture_output=True, timeout=30)
+    
     import os
     if os.path.exists('beam_report.pdf'):
         print("✓ PDF generated: beam_report.pdf")

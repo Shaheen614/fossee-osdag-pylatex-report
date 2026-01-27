@@ -22,5 +22,5 @@ def read_loads_excel(path: str) -> pd.DataFrame:
     return df
 
 if __name__ == "__main__":
-    df = read_loads_excel("loads.xlsx")
+    df = read_loads_excel("Force Table.xlsx")
     print(df)
