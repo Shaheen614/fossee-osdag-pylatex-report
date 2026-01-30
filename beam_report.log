@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.27)  27 JAN 2026 10:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.27)  30 JAN 2026 22:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -314,11 +314,11 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {C:/Users/DELL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/DELL/
 AppData/Local/Programs/MiKTeX2/fonts/enc/dvips/lm/lm-ec.enc}]
-<src/assets/beam.png, id=10, 451.6875pt x 558.58687pt>
-File: src/assets/beam.png Graphic file (type png)
-<use src/assets/beam.png>
-Package pdftex.def Info: src/assets/beam.png  used on input line 30.
-(pdftex.def)             Requested size: 276.00105pt x 341.34265pt.
+<src/assets/sample_beam.png, id=10, 707.64375pt x 593.21625pt>
+File: src/assets/sample_beam.png Graphic file (type png)
+<use src/assets/sample_beam.png>
+Package pdftex.def Info: src/assets/sample_beam.png  used on input line 30.
+(pdftex.def)             Requested size: 276.00105pt x 231.3715pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 23--31
 
@@ -355,7 +355,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--57
 
  []
 
-[2 <./src/assets/beam.png>] [3]
+[2 <./src/assets/sample_beam.png (PNG copy)>]
 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (beam_report.aux)
@@ -366,8 +366,8 @@ L3 programming layer <2025-12-29>
  ) 
 Here is how much of TeX's memory you used:
  3623 strings out of 467871
- 60457 string characters out of 5418379
- 470330 words of memory out of 5000000
+ 60506 string characters out of 5418379
+ 471330 words of memory out of 5000000
  32448 multiletter control sequences out of 15000+600000
  668291 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -377,9 +377,9 @@ b><C:/Users/DELL/AppData/Local/Programs/MiKTeX2/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/DELL/AppData/Local/Programs/MiKTeX2/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/DELL/AppData/Local/Programs/MiKTeX2/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/DELL/AppData/Local/Programs/MiKTeX2/fonts/type1/public/lm/lmr17.pfb>
-Output written on beam_report.pdf (3 pages, 174614 bytes).
+Output written on beam_report.pdf (2 pages, 199283 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
+ 36 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

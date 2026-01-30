@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.27)  27 JAN 2026 14:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.27)  30 JAN 2026 22:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -648,12 +648,12 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {C:/Users/DELL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/DELL/
 AppData/Local/Programs/MiKTeX2/fonts/enc/dvips/lm/lm-ec.enc}]
-<assets/beam.png, id=13, 451.6875pt x 558.58687pt>
-File: assets/beam.png Graphic file (type png)
-<use assets/beam.png>
-Package pdftex.def Info: assets/beam.png  used on input line 28.
-(pdftex.def)             Requested size: 276.00105pt x 341.34265pt.
- [2 <./assets/beam.png>]
+<sample_beam.png, id=13, 707.64375pt x 593.21625pt>
+File: sample_beam.png Graphic file (type png)
+<use sample_beam.png>
+Package pdftex.def Info: sample_beam.png  used on input line 28.
+(pdftex.def)             Requested size: 276.00105pt x 231.3715pt.
+ [2 <./sample_beam.png (PNG copy)>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 38.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -691,9 +691,9 @@ b><C:/Users/DELL/AppData/Local/Programs/MiKTeX2/fonts/type1/public/lm/lmr10.pfb
 ><C:/Users/DELL/AppData/Local/Programs/MiKTeX2/fonts/type1/public/lm/lmr12.pfb>
 <C:/Users/DELL/AppData/Local/Programs/MiKTeX2/fonts/type1/public/lm/lmr17.pfb><
 C:/Users/DELL/AppData/Local/Programs/MiKTeX2/fonts/type1/public/lm/lmsy10.pfb>
-Output written on beam_report.pdf (4 pages, 189782 bytes).
+Output written on beam_report.pdf (4 pages, 215163 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
+ 59 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

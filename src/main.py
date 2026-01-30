@@ -114,7 +114,7 @@ with doc.create(Section('Analysis')):
 doc.generate_tex('beam_report')
 print("✓ LaTeX file generated: beam_report.tex")
 
-# Try to generate PDF using pdflatex (run twice for TOC)
+# Trying to generate PDF using pdflatex (ran twice for TOC)
 try:
     import subprocess
     # First run to generate aux file
