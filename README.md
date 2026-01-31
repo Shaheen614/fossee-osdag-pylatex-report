@@ -22,8 +22,9 @@ Clone the repository:
 bash
 git clone https://github.com/<your-username>/fossee-osdag-pylatex-report.git
 cd fossee-osdag-pylatex-report/src
-Run the script:
 
+
+Run the script:
 bash
 python main.py
 
